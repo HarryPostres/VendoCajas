@@ -1,0 +1,51 @@
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  
+  width: 100%;
+  background: linear-gradient(135deg, #245ed3 0%, #d31f1f 100%);
+  
+}
+
+.header{
+  background-color: orange;
+  color:green;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.main-content{
+    display: flex;
+  justify-content: center; /* centro horizontal */
+  align-items: center;     /* centro vertical */
+  padding: 2rem;
+  width: 100%;    
+}
+.main-box{
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: fit-content;
+  width: 100%; /* ocupa máximo 600px, pero se adapta al 100% dentro del flex */
+  text-align: center;
+  box-sizing: border-box; /* evita que el padding “rompa” el ancho */
+}
+
+.footer {
+  background-color: purple;
+  color: white;
+  text-align: center;
+  padding:1rem; 
+  font-size: 0.9rem; 
+}
+
+h1{
+  color: black;
+}
+
+p{
+  color: black;
+}
+
