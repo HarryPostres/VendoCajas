@@ -1,51 +1,56 @@
+/* Layout principal */
 .layout {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto; /* header / contenido / footer */
   min-height: 100vh;
-  
   width: 100%;
   background: linear-gradient(135deg, #245ed3 0%, #d31f1f 100%);
-  
 }
 
-.header{
+/* Header */
+.header {
   background-color: orange;
-  color:green;
+  color: green;
   padding: 1rem 2rem;
   text-align: center;
   font-weight: bold;
 }
 
-.main-content{
-    display: flex;
-  justify-content: center; /* centro horizontal */
-  align-items: center;     /* centro vertical */
+/* Contenido principal centrado */
+.main-content {
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
   padding: 2rem;
-  width: 100%;    
+  width: 100%;
 }
-.main-box{
+
+/* Caja central */
+.main-box {
   background-color: white;
   border-radius: 16px;
   padding: 2rem;
-  max-width: fit-content;
-  width: 100%; /* ocupa máximo 600px, pero se adapta al 100% dentro del flex */
+  max-width: 600px;  /* ancho máximo */
+  width: 100%;       /* se adapta al 100% del contenedor flex */
   text-align: center;
-  box-sizing: border-box; /* evita que el padding “rompa” el ancho */
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer */
 .footer {
   background-color: purple;
   color: white;
   text-align: center;
-  padding:1rem; 
-  font-size: 0.9rem; 
+  padding: 1rem;
+  font-size: 0.9rem;
 }
 
-h1{
+/* Títulos y párrafos */
+h1 {
   color: black;
 }
 
-p{
+p {
   color: black;
 }
-
