@@ -1,0 +1,56 @@
+/* Layout principal */
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header / contenido / footer */
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #245ed3 0%, #d31f1f 100%);
+}
+
+/* Header */
+.header {
+  background-color: orange;
+  color: green;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Contenido principal centrado */
+.main-content {
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Caja central */
+.main-box {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;  /* ancho máximo */
+  width: 100%;       /* se adapta al 100% del contenedor flex */
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+  background-color: purple;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Títulos y párrafos */
+h1 {
+  color: black;
+}
+
+p {
+  color: black;
+}
