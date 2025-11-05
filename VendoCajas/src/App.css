@@ -1,9 +1,14 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* Layout principal */
-.layout {
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header / contenido / footer */
+.background {
   min-height: 100vh;
-  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background: linear-gradient(135deg, #245ed3 0%, #d31f1f 100%);
 }
 
@@ -14,15 +19,16 @@
   padding: 1rem 2rem;
   text-align: center;
   font-weight: bold;
+  width: 100%;
 }
 
-/* Contenido principal centrado */
+/* Contenido principal */
 .main-content {
   display: flex;
-  justify-content: center; /* centra horizontal */
-  align-items: center;     /* centra vertical */
-  padding: 2rem;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  padding: 2rem;
 }
 
 /* Caja central */
@@ -30,8 +36,8 @@
   background-color: white;
   border-radius: 16px;
   padding: 2rem;
-  max-width: 600px;  /* ancho máximo */
-  width: 100%;       /* se adapta al 100% del contenedor flex */
+  max-width: 1000px;
+  width: 100%;
   text-align: center;
   box-sizing: border-box;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -44,6 +50,7 @@
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
+  width: 100%;
 }
 
 /* Títulos y párrafos */
