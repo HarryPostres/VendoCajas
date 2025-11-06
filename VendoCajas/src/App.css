@@ -9,7 +9,7 @@ html, body, #root {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background: linear-gradient(135deg, #245ed3 0%, #d31f1f 100%);
+  background-color: #fff98f;
 }
 
 /* Header */
@@ -33,10 +33,10 @@ html, body, #root {
 
 /* Caja central */
 .main-box {
-  background-color: white;
+  background-color: rgb(255, 216, 59);
   border-radius: 16px;
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 1300px;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
@@ -65,7 +65,99 @@ p {
 
 
 
-.card-img{
-  width: 300px;
-  height: auto;
+
+
+
+
+
+/* productos */
+.productos-container {
+  padding: 30px 60px;
+  background-color: rgb(142, 127, 65);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
+
+.productos-container h2{
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  z-index: 1;
+  position: relative;
+
+}
+
+.productos-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card-producto{
+  flex: 0 0 260px;
+  background-color: rgb(236, 234, 119);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.card-producto h3{
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.precio{
+  font-size: 1.1rem;
+  color: rgb(73, 73, 73);
+  margin-bottom: 10px;
+}
+
+.card-botones{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-agregar, .btn-detalles{
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition:all 0.2s ease;
+}
+
+.btn-agregar{
+  background-color: #d59711;
+}
+
+.btn-agregar:hover{
+  background-color: #b47c0e;
+  color: white;
+}
+
+.btn-detalles{
+  background-color: #6da3d9;
+  color: white;
+}
+
+.btn-detalles:hover{
+  background-color: #557ea8;
+}
+
+
+
+

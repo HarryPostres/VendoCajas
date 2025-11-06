@@ -3,20 +3,10 @@ import { addProduct }  from '../Firebase/addProduct';
 import {db } from '../Firebase/config.js';
 import { collection, getDocs } from 'firebase/firestore';
 
-/* 
-async function AddProductKart() {
-    const productosCol =collection (db, 'productos');
-    const snapshot = await getDocs(productosCol);
-    const lista = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-    }));
-    return lista;
-} */
 
+/* Productos render */
 
-
-function AddProductKart() {
+function AddProductKart({mostrarAleatorios = false}) {
     const [productos, setProductos] = useState([]);
 
 
@@ -34,13 +24,22 @@ useEffect(() =>{
                 id:doc.id,
                 ...doc.data()
             }));
+
+/* PRODUCTOS EN ALEATORIO */
+if (mostrarAleatorios) {
+    const shuffled = productosData.sort(() => Math.random() - 0.5);
+    console.log("productos aleatorizados:", shuffled);
+    productosData = shuffled.slice(0, 3); // take first 10 randomized items (adjust number as needed)
+}
+
+
             setProductos(productosData);
         }catch(error){
             console.error("Error al cargar productos:", error);
         }
     };
     fetchProductos();
-}, []);
+}, [mostrarAleatorios]);
 
 return (
 
@@ -59,7 +58,6 @@ return (
                     
                     <h3>{prod.Nombre}</h3>
                     <p className='precio'>${prod.Precio}</p>
-                    <p className='descripcion'>{prod.Descripcion}</p>
 
                     <div className='card-botones'>
                         <button className='btn-agregar'>Agregar al carrito</button>
@@ -76,3 +74,12 @@ return (
 }
 
 export default AddProductKart;
+
+
+/* aleatorizacion index a partir de aca*/
+
+
+
+
+
+

@@ -20,8 +20,9 @@ function App() {
     <h1>¡Vendemos cajas!</h1>
     <p>o tal vez no tenemos cajas...</p>
 
-    <AddProductkart />
-
+    <div>
+    <AddProductkart mostrarAleatorios={true} />
+    </div>
 
   </div>
 </main>
