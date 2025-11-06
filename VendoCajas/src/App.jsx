@@ -3,7 +3,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import addProductForm from './Components/addProductForm.jsx'
+import AddProductkart from './Components/AddProductKart.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,9 +12,7 @@ function App() {
     <>
 <div className='background'>
 <header className='header'>
-
 </header>
-
 
 
 <main className='main-content'>
@@ -22,15 +20,14 @@ function App() {
     <h1>¡Vendemos cajas!</h1>
     <p>o tal vez no tenemos cajas...</p>
 
+    <AddProductkart />
 
 
   </div>
 </main>
 
 
-
 <footer className='footer'>
-
 </footer>
 </div>
     </>

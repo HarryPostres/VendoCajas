@@ -61,3 +61,11 @@ h1 {
 p {
   color: black;
 }
+
+
+
+
+.card-img{
+  width: 300px;
+  height: auto;
+}

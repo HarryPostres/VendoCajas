@@ -1,4 +1,4 @@
-import {useState} from 'react'
+/* import {useState} from 'react'
 import './Carousel.css'
 
 export default function Carousel ({images}) {
@@ -17,4 +17,4 @@ return (
         <button classname="nav-btn left" onClick={prevSlide}>❮</button>
 
         <div>
-            <img src="" alt="" />
+            <img src="" alt="" /> */
