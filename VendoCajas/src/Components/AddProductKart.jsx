@@ -20,7 +20,7 @@ useEffect(() =>{
 
 
 
-            const productosData = querySnapshot.docs.map((doc) => ({
+            let productosData = querySnapshot.docs.map((doc) => ({
                 id:doc.id,
                 ...doc.data()
             }));
@@ -63,6 +63,7 @@ return (
                         <button className='btn-agregar'>Agregar al carrito</button>
                         <button className='btn-detalles'>Ver detalles</button>
                     </div>
+                    
                 </div>
                 ))
            ) : (
