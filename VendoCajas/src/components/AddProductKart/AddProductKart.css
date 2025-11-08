@@ -1,0 +1,90 @@
+
+
+/* productos */
+.productos-container {
+
+  padding: 5px, 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+.productos-container h2{
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  z-index: 1;
+  position: relative;
+  margin-top: 3px;
+
+}
+
+.productos-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card-producto{
+  flex: 0 0 260px;
+  background-color: rgb(236, 234, 119);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.card-producto h3{
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.precio{
+  font-size: 1.1rem;
+  color: rgb(73, 73, 73);
+  margin-bottom: 10px;
+}
+
+.card-botones{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-agregar, .btn-detalles{
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition:all 0.2s ease;
+}
+
+.btn-agregar{
+  background-color: #d59711;
+}
+
+.btn-agregar:hover{
+  background-color: #b47c0e;
+  color: white;
+}
+
+.btn-detalles{
+  background-color: #6da3d9;
+  color: white;
+}
+
+.btn-detalles:hover{
+  background-color: #557ea8;
+}

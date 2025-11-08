@@ -9,3 +9,58 @@ service cloud.firestore {
   }
 }
 caution:
+
+
+
+
+
+
+
+
+
+
+
+
+        <>
+/* <div className="background">
+<header className="header">
+
+</header>
+
+
+
+
+<main className="main-content-catalogo">
+    <div className="main-box-catalogo">
+            <h1 className="titulo-catalogo">Catálogo completo</h1>
+
+            <p>te presentamos nuestro catálogo completo de productos: </p>
+
+            <AddProductKart mostrarAleatorios={false} />
+
+        <div className="volver-container-catalogo">
+            <Link to="/" className="btn-volver-catalogo"> 
+                Volver al inicio
+            </Link>
+        </div>
+    </div>
+</main>
+
+<footer className="footer">
+</footer>
+</div>
+</>
+ */
+
+
+
+
+     <BrowserRouter>
+      <Routes>
+
+        <Route path = "/" element={<App />} />
+
+        <Route path = "/catalogo" element = {<AddProductKart/>} />  
+
+    </Routes>
+    </BrowserRouter>

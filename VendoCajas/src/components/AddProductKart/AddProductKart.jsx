@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
-import { addProduct }  from '../Firebase/addProduct';
-import {db } from '../Firebase/config.js';
+import { addProduct }  from '../../firebase/addProduct.js';
+import {db } from '../../firebase/config.js';
 import { collection, getDocs } from 'firebase/firestore';
+import './AddProductKart.css';
 
 
 /* Productos render */
@@ -52,7 +53,7 @@ return (
                 <div className='card-producto' key={prod.id}>
                     <img 
                     src={prod.imageUrl}
-                    alt={prod.nombre}
+                    alt={prod.Nombre}
                     className='card-img'
                     />
                     
@@ -61,7 +62,9 @@ return (
 
                     <div className='card-botones'>
                         <button className='btn-agregar'>Agregar al carrito</button>
-                        <button className='btn-detalles'>Ver detalles</button>
+                        <button className='btn-detalles' 
+                        onClick = {() => navigate (`/producto/${prod.id}`)}>
+                        Ver detalles</button>
                     </div>
                     
                 </div>
@@ -77,7 +80,6 @@ return (
 export default AddProductKart;
 
 
-/* aleatorizacion index a partir de aca*/
 
 
 

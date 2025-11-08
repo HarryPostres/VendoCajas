@@ -1,45 +1,58 @@
-/* identificador firebase: vendocajas-1fffe */
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import {Link} from "react-router-dom"
-import AddProductkart from './Components/AddProductKart.jsx'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-<div className='background'>
-<header className='header'>
-</header>
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import IndexHtml from "./components/Main/IndexHtml";
+import AddProductKart from "./components/AddProductKart/AddProductKart";
+import Catalogo from "./components/catalogo/Catalogo.jsx";
+import Contacto from "./components/Contacto/Contacto.jsx";
+import Carrito from "./components/Carrito/Carrito.jsx";
+import DetallesProductos from "./components/DetallesProductos/DetallesProductos.jsx";
 
 
-<main className='main-content'>
-  <div className='main-box'>
-    <h1>¡Vendemos cajas!</h1>
-    <p>o tal vez no tenemos cajas...</p>
+export default function App() {
+  return(
+    <BrowserRouter>
+        <Routes>
+          
+          <Route
+           path="/"
+            element={
+            <Layout><IndexHtml/></Layout>
+            }
+            />
 
-    <div>
-    <AddProductkart mostrarAleatorios={true} />
-    </div>
+          <Route
+           path="/add-product"
+            element={
+           <Layout><AddProductKart/></Layout>
+           }/>
+          
+          <Route 
+          path="/catalogo"
+           element={
+           <Layout><Catalogo/></Layout>
+           }/>
+          
+          <Route 
+          path ="/contacto"
+           element ={
+           <Layout><Contacto/></Layout>
+           }/>
+          
+          <Route
+           path ="/carrito"
+            element ={
+           <Layout> <Carrito/> </Layout>
+            }/>
+          
+          <Route
+           path="/producto/:id"
+            element={
+            <Layout><DetallesProductos/></Layout>
+            }/>
 
-    <div className='ver-todas-container'>
-      <Link to="/Catalogo" className='btn-ver-todas'>
-      Ver todas
-      </Link> 
-    </div>
-
-  </div>
-</main>
-
-
-<footer className='footer'>
-</footer>
-</div>
-    </>
+        </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App
+export {App};

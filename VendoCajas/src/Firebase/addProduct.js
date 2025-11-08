@@ -12,9 +12,9 @@ export async function addProduct(nombre, precio, descripcion, imagen) {
         const imageUrl = await getDownloadURL (storageRef);
 
         const docRef = await addDoc(collection(db, "Productos"), {
-            nombre,
-            precio,
-            descripcion,
+            Nombre,
+            Precio,
+            Descripcion,
             imagenUrl: imageUrl
         });
 
