@@ -1,15 +1,19 @@
 import {useEffect, useState} from 'react';
-import { addProduct }  from '../../firebase/addProduct.js';
-import {db } from '../../firebase/config.js';
+import { addProduct }  from '../firebase/addProduct.js';
+import {db } from '../firebase/config.js';
 import { collection, getDocs } from 'firebase/firestore';
-import './AddProductKart.css';
+import '../css/ItemListContainer.css';
+import { useNavigate } from 'react-router-dom';
+import {useCart} from "./CartContext.jsx";
+
 
 
 /* Productos render */
 
 function AddProductKart({mostrarAleatorios = false}) {
     const [productos, setProductos] = useState([]);
-
+    const navigate = useNavigate();
+    const { addToCart } = useCart();
 
 useEffect(() =>{
     const fetchProductos = async () => {
@@ -61,7 +65,9 @@ return (
                     <p className='precio'>${prod.Precio}</p>
 
                     <div className='card-botones'>
-                        <button className='btn-agregar'>Agregar al carrito</button>
+                        <button className='btn-agregar'
+                        onClick = {() => addToCart(prod)}>
+                        Agregar al carrito</button>
                         <button className='btn-detalles' 
                         onClick = {() => navigate (`/producto/${prod.id}`)}>
                         Ver detalles</button>

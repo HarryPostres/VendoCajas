@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";  
-import './Contacto.css';
+import '../css/Contacto.css';
 
 const Contacto = () => {
   return (

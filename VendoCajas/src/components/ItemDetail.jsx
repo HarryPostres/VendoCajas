@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
-import { db } from "../../firebase/config";
+import { db } from "../firebase/config";
 import { doc, getDoc } from "firebase/firestore";
-import './DetallesProductos.css';
+import '../css/ItemDetail.css';
 
 export default function DetallesProductos() {
     const {id} = useParams();
@@ -34,16 +34,17 @@ export default function DetallesProductos() {
     if (!producto) return <p>Producto no encontrado.</p>;
 
     return (
-<div id='app-layout'>
-<main className='main-content'>
+<div id='app-layout-detalles'>
+<main className='main-content-detalles'>
 
-    <img src={producto.imagenUrl} alt={producto.nombre} className="detalle-img" />
+   <div className="div-img-detalles"> <img src={producto.imageUrl} alt={producto.nombre} className="img-detalles" /> </div>
+    <div chlassName="info-detalles">
     <h1>{producto.Nombre}</h1>
-    <p className="detalle-precio">${producto.Precio}</p>
-    <p className="detalle-descripcion">{producto.Descripcion}</p>
+    <p className="precio-detalles">${producto.Precio}</p>
+    <p className="descipcion-detalles">{producto.Descripcion}</p>
 
-    <button className="btn-agregar"> Agregar al carrito</button>
-
+    <button className="btn-agregar-detalles"> Agregar al carrito</button>
+   </div>
 
 
 </main>

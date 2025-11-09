@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
-import AddProductKart from "../AddProductKart/AddProductKart.jsx";  
-import './Catalogo.css';
+import AddProductKart from "./ItemListContainer.jsx";  
+import '../css/Catalogo.css';
 
 const Catalogo = () => {
   return (

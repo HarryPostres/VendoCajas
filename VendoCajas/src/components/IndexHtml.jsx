@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
-import AddProductKart from "../AddProductKart/AddProductKart.jsx";  
-import './indexHtml.css';
+import AddProductKart from "./ItemListContainer.jsx";  
+import '../css/indexHtml.css';
 
 const IndexHtml = () => {
   return (

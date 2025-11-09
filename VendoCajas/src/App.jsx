@@ -1,16 +1,18 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import IndexHtml from "./components/Main/IndexHtml";
-import AddProductKart from "./components/AddProductKart/AddProductKart";
-import Catalogo from "./components/catalogo/Catalogo.jsx";
-import Contacto from "./components/Contacto/Contacto.jsx";
-import Carrito from "./components/Carrito/Carrito.jsx";
-import DetallesProductos from "./components/DetallesProductos/DetallesProductos.jsx";
+import Layout from "./components/Layout.jsx";
+import IndexHtml from "./components/IndexHtml.jsx";
+import AddProductKart from "./components/ItemListContainer.jsx";
+import Catalogo from "./components/Catalogo.jsx";
+import Contacto from "./components/Contacto.jsx";
+import { CartProvider } from "./components/CartContext.jsx";
+import Carrito from "./components/Cart.jsx";
+import DetallesProductos from "./components/ItemDetail.jsx";
 
 
 export default function App() {
   return(
     <BrowserRouter>
+      <CartProvider>
         <Routes>
           
           <Route
@@ -39,7 +41,7 @@ export default function App() {
            }/>
           
           <Route
-           path ="/carrito"
+           path ="/cart"
             element ={
            <Layout> <Carrito/> </Layout>
             }/>
@@ -51,6 +53,7 @@ export default function App() {
             }/>
 
         </Routes>
+      </CartProvider>      
     </BrowserRouter>
   )
 }

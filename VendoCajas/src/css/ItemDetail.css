@@ -1,0 +1,59 @@
+.app-layout-detalles{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.main-content-detalles{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+width: 80%;
+max-width: 1200px;
+align-items: center;
+}
+
+.img-detalles{
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    justify-self: center;
+}
+
+.main-content-detalles h1,
+.main-content-detalles .precio-detalles,
+.main-content-detalles .descipcion-detalles
+.main-content-detalles .btn-agregar-detalles{
+    text-align: center;
+    
+}
+
+.precio-detalles{
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.btn-agregar-detalles{
+width: 700px;
+padding: 12px 20px;
+margin-top: 25px;
+align-self: center;
+background:black;
+color: white;
+cursor: pointer;
+border: none;
+font-size: 16px;
+}
+
+.btn-agregar-detalles:hover{
+    background: #e6d14c;
+}
+
+.info-detalles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
