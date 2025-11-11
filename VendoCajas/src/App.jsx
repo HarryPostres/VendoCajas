@@ -5,6 +5,7 @@ import AddProductKart from "./components/ItemListContainer.jsx";
 import Catalogo from "./components/Catalogo.jsx";
 import Contacto from "./components/Contacto.jsx";
 import { CartProvider } from "./components/CartContext.jsx";
+import { NotificationProvider } from './components/NotificationContext.jsx';
 import Carrito from "./components/Cart.jsx";
 import DetallesProductos from "./components/ItemDetail.jsx";
 
@@ -12,6 +13,7 @@ import DetallesProductos from "./components/ItemDetail.jsx";
 export default function App() {
   return(
     <BrowserRouter>
+    <NotificationProvider>
       <CartProvider>
         <Routes>
           
@@ -54,8 +56,9 @@ export default function App() {
 
         </Routes>
       </CartProvider>      
+     </NotificationProvider>
     </BrowserRouter>
-  )
+  );
 }
 
 export {App};

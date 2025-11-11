@@ -38,7 +38,7 @@ export default function DetallesProductos() {
 <main className='main-content-detalles'>
 
    <div className="div-img-detalles"> <img src={producto.imageUrl} alt={producto.nombre} className="img-detalles" /> </div>
-    <div chlassName="info-detalles">
+    <div className="info-detalles">
     <h1>{producto.Nombre}</h1>
     <p className="precio-detalles">${producto.Precio}</p>
     <p className="descipcion-detalles">{producto.Descripcion}</p>

@@ -32,7 +32,20 @@
     border-radius:8px;
     width: fit-content;
     margin-top: 10px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: opacity 0.3 ease, transform 0.3s ease, visibiliti 0.3s ease;
 }
+
+
+.carrito-item:hover .contador-cart{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 
 .btn-count{
     background-color: aqua;

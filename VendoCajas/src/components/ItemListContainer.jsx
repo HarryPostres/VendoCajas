@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import '../css/ItemListContainer.css';
 import { useNavigate } from 'react-router-dom';
 import {useCart} from "./CartContext.jsx";
+import { useNotification } from './NotificationContext.jsx';
 
 
 
@@ -14,6 +15,7 @@ function AddProductKart({mostrarAleatorios = false}) {
     const [productos, setProductos] = useState([]);
     const navigate = useNavigate();
     const { addToCart } = useCart();
+    const {showNotification} = useNotification();
 
 useEffect(() =>{
     const fetchProductos = async () => {
@@ -46,6 +48,12 @@ if (mostrarAleatorios) {
     fetchProductos();
 }, [mostrarAleatorios]);
 
+
+const handleAddToCart = (prod) => {
+    addToCart(prod);
+    showNotification("Producto agregado al carrito.")
+}
+
 return (
 
     <div className='productos-container'>
@@ -66,7 +74,7 @@ return (
 
                     <div className='card-botones'>
                         <button className='btn-agregar'
-                        onClick = {() => addToCart(prod)}>
+                        onClick = {() => handleAddToCart(prod)}>
                         Agregar al carrito</button>
                         <button className='btn-detalles' 
                         onClick = {() => navigate (`/producto/${prod.id}`)}>
