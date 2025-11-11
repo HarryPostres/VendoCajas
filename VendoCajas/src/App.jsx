@@ -12,9 +12,10 @@ import DetallesProductos from "./components/ItemDetail.jsx";
 
 export default function App() {
   return(
-    <BrowserRouter>
+
     <NotificationProvider>
       <CartProvider>
+        <BrowserRouter>
         <Routes>
           
           <Route
@@ -55,9 +56,10 @@ export default function App() {
             }/>
 
         </Routes>
+    </BrowserRouter>
       </CartProvider>      
      </NotificationProvider>
-    </BrowserRouter>
+
   );
 }
 

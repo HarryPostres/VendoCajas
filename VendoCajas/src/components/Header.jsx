@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";  
 import '../css/Header.css';
+import CartWidget from "./CartWidget";
 
 
 export default function Header(){
@@ -9,8 +10,8 @@ export default function Header(){
         <nav className="nav-links">
           <Link to ="/" className="nav-item">Inicio</Link>
           <Link to ="/catalogo" className="nav-item">Catálogo</Link>
-          <Link to ="/cart" className="nav-item">Carrito</Link>
-          <Link to ="/contacto" className="nav-item">Contacto</Link>          
+          <Link to ="/contacto" className="nav-item">Contacto</Link>
+          <CartWidget/> {}          
         </nav>
     </header>
   );

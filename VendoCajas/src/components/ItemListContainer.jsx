@@ -17,6 +17,8 @@ function AddProductKart({mostrarAleatorios = false}) {
     const { addToCart } = useCart();
     const {showNotification} = useNotification();
 
+
+
 useEffect(() =>{
     const fetchProductos = async () => {
         try{
@@ -51,7 +53,7 @@ if (mostrarAleatorios) {
 
 const handleAddToCart = (prod) => {
     addToCart(prod);
-    showNotification("Producto agregado al carrito.")
+    showNotification("Producto agregado al carrito, puede sumar unidades en el carrito.")
 }
 
 return (
