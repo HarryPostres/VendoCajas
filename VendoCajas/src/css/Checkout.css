@@ -1,0 +1,45 @@
+.checkout-container{
+max-width: 600px;
+margin:40px auto;
+padding: 25px;
+}
+
+.checkout-container h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.checkout-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label{
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.btn-confirmar {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: yellow;
+    border: none;
+    color: rgb(101, 101, 101);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover{
+    color: black;
+    background-color: rgb(255, 255, 64);
+}

@@ -1,8 +1,11 @@
 import {useCart} from "./CartContext";
 import  "../css/Cart.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Carrito () {
     const {items, removeFromCart, clearCart, addToCart, decrement} = useCart();
+   const navigate = useNavigate();
+   
     if (items.length === 0){
         return <h2>El carrito está vacío.</h2>;
 }
@@ -54,7 +57,13 @@ return (
 
 <h3> total: ${total.toFixed(2)}</h3>
 
-<button className="btn-pagar-cart"> Pagar </button>
+<button 
+className="btn-pagar-cart"
+onClick={() => navigate("/checkout")}
+> 
+    Pagar 
+</button>
+
 </div>
 
 </div>

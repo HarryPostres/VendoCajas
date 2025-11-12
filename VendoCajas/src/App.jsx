@@ -8,7 +8,7 @@ import { CartProvider } from "./components/CartContext.jsx";
 import { NotificationProvider } from './components/NotificationContext.jsx';
 import Carrito from "./components/Cart.jsx";
 import DetallesProductos from "./components/ItemDetail.jsx";
-
+import Checkout from "./components/Checkout.jsx";
 
 export default function App() {
   return(
@@ -49,6 +49,14 @@ export default function App() {
            <Layout> <Carrito/> </Layout>
             }/>
           
+            <Route 
+            path="/checkout"
+            element={
+            <Layout> <Checkout/> </Layout>
+            }
+            />
+
+
           <Route
            path="/producto/:id"
             element={
