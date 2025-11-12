@@ -23,12 +23,12 @@ export default function Checkout(){
     const [errors, setErrors]= useState({});
     const [successMsg, setSuccesMsg] = useState(null);
 
-    
+/* logica card */    
 
     const handleChange = (e) => {
         const {name, value} = e.target;
         let v = value;
-    };
+    
 
     if (name === "cardNumber"){
         v = value.replace(/\D/g,"").slice(0,19);
@@ -40,8 +40,15 @@ export default function Checkout(){
     }
 
     if (name === "cardExpiry") {
-        v = value.replace(/[^\d\/]/g,"").sllice(0, 5);
-        if (v.length === 2 && !v.includes("/")) v = v + "/";
+        v = value.replace(/[^\d]/g,"");
+        if (v.length > 2) {
+            v = v.slice(0, 2) + "/" + v.slice(2, 4);
+        }
+        v = v.slice(0,5);
+    }
+
+    setFormData((fd) => ({...fd, [name]: v}));
+
     };
 
     const luhnCheck = (num) => {
@@ -72,12 +79,35 @@ const validate = () => {
     if (!formData.provincia.trim()) e.provincia = "Provincia requerida";
     if (!formData.codigoPostal.trim()) e.codigoPostal = "Código postal requerido";
 
+    const rawCardNumber = (formData.cardNumber || "").replace(/\s+/g,"");
+    if (!rawCardNumber){
+        e.cardNumber = "Número de tarjeta requerido";
+    } else if (!luhncheck(rawCardNumber)) {
+        e.cardNumber = "Numero de tarjeta inválido"
+    }
 
+    if (!formData.cardExpiry.match(/^\d{2}\/\d{2}$/)){
+        e.cardExpiry = "Formato MM/YY requerido"
+    }else{
+        const [mStr, yStr] = formData.cardExpiry.split("/");
+        const mm = parseInt(mStr, 10);
+        const yy =parseInt(yStr, 10);
+        if (mm < 1 || mm > 12) e.cardExpiry = "Mes inválido";
+        else{
+            const now = new Date();
+            const fullYear = 2000 + yy;
+            const exp = new Date(fullYear, mm, 0);
+            if (exp < new Date(now.getFullYear(), now.getMonth(), now.getDate())) e.cardExpiry = "Tarjeta vencida";
+        }
+    }
 
-    /* seguir desde  const rawCardNumber*/
+    if (!formData.cardCvv.match(/^\d{3,4}$/)) e.cardCvv = "CVV inválido";
 
+/* errores */
 
-
+    setErrors(e);
+    return Object.keys(e).length === 0; 
+    };
 
 
     const handleSubmit = (e) => {
@@ -89,11 +119,45 @@ const validate = () => {
             return;
         }
 
-
-
-
-
+        const orden = {
+            comparador :{
+                nombre: formData.nombre,
+                email: formData.email,
+                dni: formData.dni,
+                direccion:{
+                    calle: formData.direccion,
+                    localidad: formData.localidad,
+                    provincia: formData.provincia,
+                    cp: formData.codigoPostal,
+                },
+            },
+        items,
+        total: Number(total.toFixed(2)),
+        fecha: new Date().toISOString(),
+        pago:{
+            metodo: "tarjeta_simulada",
+            estado: "pagado_simulado",
+            cardLast4:(formData.cardNumber || "").replace(/\s+/g, "").slice(-4),
+        },
     };
+
+console.log("ORDEN SIMULADA:", orden);
+setSuccesMsg(`Orden simulada creada. Total: $${orden.total}. (ver consola para object)`);
+
+setFormData({
+    nombre: "",
+    email:"",
+    dni: "",
+    direccion: "",
+    localidad: "",
+    provincia: "",
+    codigoPostal:"",
+    cardNumber:"",
+    cardExpiry:"",
+    cardCvv:"",
+});
+setErrors({});
+ };
 
     if (items.length === 0){
         return <h2 style={{textAlign: "center"}}> El carrito está vacío.</h2>;
