@@ -14,20 +14,85 @@ export default function Checkout(){
         localidad:"",
         provincia:"",
         codigoPostal:"",
+
+        cardName:"",
+        cardExpiry:"",
+        cardCvv:"",
     });
 
+    const [errors, setErrors]= useState({});
+    const [successMsg, setSuccesMsg] = useState(null);
+
+    
+
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+        const {name, value} = e.target;
+        let v = value;
     };
+
+    if (name === "cardNumber"){
+        v = value.replace(/\D/g,"").slice(0,19);
+        v = v.replace(/(.{4})/g, "$1 ").trim();
+    }
+
+    if(name ==="cardCvv"){
+        v = value.replace(/\D/g, "").slice(0, 4);
+    }
+
+    if (name === "cardExpiry") {
+        v = value.replace(/[^\d\/]/g,"").sllice(0, 5);
+        if (v.length === 2 && !v.includes("/")) v = v + "/";
+    };
+
+    const luhnCheck = (num) => {
+        const digits = num.replace(/\s+/g, "").split("").reverse().map((d) => parseInt(d, 10));
+        if(digits.some(isNaN)) return false;
+        let sum = 0;
+        for (let i = 0; i < digits.length; i++){
+            let d = digits[i];
+            if (i % 2 === 1)
+                d = d * 2;
+            if(d > 9)d = d - 9;
+        }
+    return sum % 10 === 0
+    };
+
+
+    //validaciones
+const validate = () => {
+    const e = {};
+
+
+
+    if (!formData.nombre.trim()) e.nombre = "Nombre requerido";
+    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.mail = "Email invalido";
+    if (!formData.dni.trim()) e.dni = "DNI requerido";
+    if (!formData.direccion.trim()) e.direccion = "Dirección requerida";
+    if (!formData.localidad.trim()) e.localidad = "Localidad requerida";
+    if (!formData.provincia.trim()) e.provincia = "Provincia requerida";
+    if (!formData.codigoPostal.trim()) e.codigoPostal = "Código postal requerido";
+
+
+
+    /* seguir desde  const rawCardNumber*/
+
+
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Datos de compra", formData);
-        console.log("total a pagar:", total.toFixed(2));
-        alert("Compra registrada (sin metodo de pago aun).");
+        setSuccesMsg(null);
+
+        if(!validate()){
+            window.scrollTo({top: 0, behavior:"smooth"});
+            return;
+        }
+
+
+
+
+
     };
 
     if (items.length === 0){
@@ -123,11 +188,56 @@ export default function Checkout(){
                  />
             </div>
 
+        <fieldset className="fieldset">
+            <div className="form-group">
+                <label htmlFor="cardNumber">introduzca los datos de su tarjeta</label>
+                <input type="text"
+                id="cardNumber"
+                name="cardNumber"
+                value={formData.cardNumber}
+                onChange={handleChange}
+                placeholder="1234 5678 9012 3456"
+                required
+                 />
+                 {errors.cardNumber && <small className="error"> {errors.cardNumber}</small>}
+            </div>       
+
+            
+            <div className="form-group">
+                <label htmlFor="cardExpiry">Fecha de vencimiento</label>
+                <input type="text"
+                id="cardExpiry"
+                name="cardExpiry"
+                value={formData.cardExpiry}
+                onChange={handleChange}
+                placeholder="MM/YY"
+                required
+                 />
+                 {errors.cardExpiry && <small className="error"> {errors.cardExpiry}</small>}
+            </div>
+
+            
+            <div className="form-group">
+                <label htmlFor="cardCvv">Codigo de seguridad</label>
+                <input type="text"
+                id="cardCvv"
+                name="cardCvv"
+                value={formData.cardCvv}
+                onChange={handleChange}
+                placeholder="123"
+                required
+                 />
+            </div>
+                 {errors.cardCvv && <small className="error"> {errors.cardCvv}</small>}
+
+
+</fieldset>
+
         <div className="checkout-total">
             <h3>Total a pagar: ${total.toFixed(2)}</h3>
         </div>
 
-        <button type="submi" className= "btn-confirmar" >
+        <button type="submit" className= "btn-confirmar" >
             Confirmar compra
         </button>
         </form>
