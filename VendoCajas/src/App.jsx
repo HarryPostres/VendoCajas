@@ -9,6 +9,7 @@ import { NotificationProvider } from './components/NotificationContext.jsx';
 import Carrito from "./components/Cart.jsx";
 import DetallesProductos from "./components/ItemDetail.jsx";
 import Checkout from "./components/Checkout.jsx";
+import OrderDetail from "./components/OrderDetail.jsx";
 
 export default function App() {
   return(
@@ -55,6 +56,18 @@ export default function App() {
             <Layout> <Checkout/> </Layout>
             }
             />
+
+            <Route
+              path = "/orden/:id"
+              element={
+                <Layout><OrderDetail/></Layout>
+              }
+
+
+            />
+
+
+
 
 
           <Route

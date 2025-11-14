@@ -1,6 +1,12 @@
 import {useState} from "react";
 import {useCart} from "./CartContext";
 import "../css/Checkout.css"
+import {collection, addDoc } from "firebase/firestore"
+import firebase from "firebase/compat/app";
+import {db} from "../firebase/config.js";
+import { useNavigate } from "react-router-dom";
+import { doc } from "firebase/firestore/lite";
+
 
 export default function Checkout(){
     const {items} = useCart();
@@ -15,7 +21,7 @@ export default function Checkout(){
         provincia:"",
         codigoPostal:"",
 
-        cardName:"",
+        cardNumber:"",
         cardExpiry:"",
         cardCvv:"",
     });
@@ -52,17 +58,29 @@ export default function Checkout(){
     };
 
     const luhnCheck = (num) => {
-        const digits = num.replace(/\s+/g, "").split("").reverse().map((d) => parseInt(d, 10));
+        const digits = num
+        .replace(/\s+/g, "")
+        .split("")
+        .reverse()
+        .map((d) => parseInt(d, 10));
+        
         if(digits.some(isNaN)) return false;
+        
         let sum = 0;
+        
         for (let i = 0; i < digits.length; i++){
             let d = digits[i];
-            if (i % 2 === 1)
+        
+            if (i % 2 === 1){
                 d = d * 2;
-            if(d > 9)d = d - 9;
+                if(d > 9)d = d - 9;
         }
-    return sum % 10 === 0
-    };
+
+        sum += d;
+    }
+    
+        return sum % 10 === 0
+};
 
 
     //validaciones
@@ -72,7 +90,7 @@ const validate = () => {
 
 
     if (!formData.nombre.trim()) e.nombre = "Nombre requerido";
-    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.mail = "Email invalido";
+    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = "Email invalido";
     if (!formData.dni.trim()) e.dni = "DNI requerido";
     if (!formData.direccion.trim()) e.direccion = "Dirección requerida";
     if (!formData.localidad.trim()) e.localidad = "Localidad requerida";
@@ -82,7 +100,7 @@ const validate = () => {
     const rawCardNumber = (formData.cardNumber || "").replace(/\s+/g,"");
     if (!rawCardNumber){
         e.cardNumber = "Número de tarjeta requerido";
-    } else if (!luhncheck(rawCardNumber)) {
+    } else if (!luhnCheck(rawCardNumber)) {
         e.cardNumber = "Numero de tarjeta inválido"
     }
 
@@ -110,7 +128,9 @@ const validate = () => {
     };
 
 
-    const handleSubmit = (e) => {
+const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setSuccesMsg(null);
 
@@ -131,7 +151,13 @@ const validate = () => {
                     cp: formData.codigoPostal,
                 },
             },
-        items,
+
+            items: items.map((item) => ({
+                id: item.id,
+                nombre:item.Nombre || item.nombre || "producto",
+                precio: item.Precio,
+                cantidad: item.cantidad,
+            })),
         total: Number(total.toFixed(2)),
         fecha: new Date().toISOString(),
         pago:{
@@ -141,8 +167,10 @@ const validate = () => {
         },
     };
 
-console.log("ORDEN SIMULADA:", orden);
-setSuccesMsg(`Orden simulada creada. Total: $${orden.total}. (ver consola para object)`);
+    try{
+        const docRef = await addDoc(collection(db, "ordenes"), orden);
+        console.log ("orden guardada con ID:", docRef.id);
+    
 
 setFormData({
     nombre: "",
@@ -157,7 +185,14 @@ setFormData({
     cardCvv:"",
 });
 setErrors({});
- };
+
+navigate(`/orden/${docRef.id}`);
+}catch(err){
+    console.error("Error al guardar la orden", err);
+    alert("Ocurrio un error al procesar la compra,  intente mas tarde.");
+}
+
+};
 
     if (items.length === 0){
         return <h2 style={{textAlign: "center"}}> El carrito está vacío.</h2>;
@@ -301,7 +336,7 @@ setErrors({});
             <h3>Total a pagar: ${total.toFixed(2)}</h3>
         </div>
 
-        <button type="submit" className= "btn-confirmar" >
+        <button type="submit" className= "btn-confirmar">
             Confirmar compra
         </button>
         </form>
