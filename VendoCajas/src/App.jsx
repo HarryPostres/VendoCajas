@@ -13,7 +13,7 @@ import OrderDetail from "./components/OrderDetail.jsx";
 
 export default function App() {
   return(
-
+<div className="App">
     <NotificationProvider>
       <CartProvider>
         <BrowserRouter>
@@ -80,7 +80,7 @@ export default function App() {
     </BrowserRouter>
       </CartProvider>      
      </NotificationProvider>
-
+</div>
   );
 }
 

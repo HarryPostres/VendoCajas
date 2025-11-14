@@ -31,7 +31,7 @@ return (
     <div className="Ticket-container">
         <h1>Ticket de compra:</h1>
         <p><strong>ID de orden:</strong>{id}</p>
-        <p><strong>Cliente:</strong>{orden.comprador.nombre}</p>
+        <p><strong>Cliente:</strong>{orden.comprador.Nombre}</p>
         <p><strong>Email:</strong>{orden.comprador.email}</p>
         <p><strong>Fecha:</strong>{new Date(orden.fecha).toLocaleString()}</p>
 
@@ -39,7 +39,7 @@ return (
         <ul>
             {orden.items.map((p) => (
                 <li key={p.id}>
-                   {p.nombre} x{p.cantidad} - ${p.precio * p.cantidad}     
+                   {p.Nombre} x{p.cantidad} - ${p.precio * p.cantidad}     
                 </li>
             ))}
         </ul>

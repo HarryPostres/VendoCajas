@@ -140,7 +140,7 @@ const navigate = useNavigate();
         }
 
         const orden = {
-            comparador :{
+            comprador :{
                 nombre: formData.nombre,
                 email: formData.email,
                 dni: formData.dni,
@@ -154,7 +154,7 @@ const navigate = useNavigate();
 
             items: items.map((item) => ({
                 id: item.id,
-                nombre:item.Nombre || item.nombre || "producto",
+                nombre:item.Nombre || "producto",
                 precio: item.Precio,
                 cantidad: item.cantidad,
             })),
