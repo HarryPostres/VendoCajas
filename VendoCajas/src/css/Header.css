@@ -23,18 +23,24 @@
 }
 
 .nav-links{
+    margin: 10px;
     display: flex;
     gap: 15px;
-    
-
 }
 
+
 .nav-item{
-    color: white;
+  background-image: url('./src/img/Btn-navbar.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+    padding: 10px 15px;
+    color: rgb(2, 243, 22);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .nav-item:hover{
+    color: red;
     text-decoration: underline;
 }

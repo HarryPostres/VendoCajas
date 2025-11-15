@@ -10,6 +10,15 @@
 }
 
 
+.img-index-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  
+}
+
+.img-index-container p{
+  font-size: 35px;
+}
 
 .img-index{
   display: flex;
@@ -18,11 +27,11 @@
 
 
 h3{
-  font-size: 26px;
+  font-size: 34px;
 }
 
 p{
-  font-size: 18px;
+  font-size: 28px;
 }
 
 .btn-ver-catalogo{
