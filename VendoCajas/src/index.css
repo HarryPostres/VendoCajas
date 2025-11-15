@@ -4,6 +4,9 @@
   min-height: 100vh;
 }
 
+body{
+  background-image: url('./src/img/Background.jpg');
+}
 .main-content{
   min-height: 0;
 }

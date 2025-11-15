@@ -1,7 +1,21 @@
 .main-content{
-  background-color: grey;
+    background-image: url('./src/img/MainContent.jpeg') ;
+      background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+    height: 100%;
+  width: fit;
   text-align: center;  
+  padding: 5px 2px;
 }
+
+
+
+.img-index{
+  display: flex;
+  height: 450px;
+}
+
 
 h3{
   font-size: 26px;
@@ -9,4 +23,21 @@ h3{
 
 p{
   font-size: 18px;
+}
+
+.btn-ver-catalogo{
+  background-image: url('./src/img/Buttons.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: none;
+  height: 60px;
+  width: 250px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.index-img-text{
+  text-align: right;
 }

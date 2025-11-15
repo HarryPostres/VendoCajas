@@ -27,7 +27,14 @@
 
 .card-producto{
   flex: 0 0 260px;
-  background-color: rgb(236, 234, 119);
+
+    background-image: url('./src/img/CardProducto.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -44,15 +51,30 @@
   margin-top: 10px;
 }
 
-.card-producto h3{
+.card-producto h3, .precio{
+  background-image: url('./src/img/Text.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   font-size: 1.2rem;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+
 }
 
 .precio{
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: rgb(73, 73, 73);
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+height: 60px;
+  text-align: center;
+}
+
+.card-producto h3{
+  padding: 5px 5px;
+  height: 30px;
+  font-size: 25px;
 }
 
 .card-botones{
@@ -63,9 +85,15 @@
 }
 
 .btn-agregar, .btn-detalles{
+
+  background-image: url('./src/img/Buttons.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+
   padding: 8px 12px;
   border: none;
-  border-radius: 8px;
+  
   cursor: pointer;
   font-size: 0.95rem;
   transition:all 0.2s ease;
