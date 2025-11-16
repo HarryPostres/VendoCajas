@@ -25,7 +25,7 @@ padding: 25px;
 }
 
 .form-group input {
-              background-image: url('./src/img/Fondo-blanco.png');
+             /*  background-image: url('./src/img/Fondo-blanco.png'); */
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
@@ -35,7 +35,7 @@ padding: 25px;
 }
 
 .btn-confirmar {
-              background-image: url('./src/img/Btn-amarillo.jpg');
+ /*              background-image: url('./src/img/Btn-amarillo.jpg'); */
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;

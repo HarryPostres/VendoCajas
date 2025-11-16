@@ -204,6 +204,7 @@ navigate(`/orden/${docRef.id}`);
         
         <form className= "checkout-form" onSubmit={handleSubmit}>
 
+        <fieldset className="fieldset">
             <div className="form-group">
                 <label htmlFor="nombre">Nombre completo</label>
                 <input 
@@ -219,7 +220,7 @@ navigate(`/orden/${docRef.id}`);
             <div className="form-group">
                 <label htmlFor="email">Correo electronico</label>
                 <input 
-                type="email"
+                type="text"
                 id="email"
                 name="email"
                 value={formData.email}
@@ -255,7 +256,7 @@ navigate(`/orden/${docRef.id}`);
             <div className="form-group">
                 <label htmlFor="localidad">Localidad</label>
                 <input
-                type="localidad"
+                type="text"
                 id="localidad"
                 name="localidad"
                 value={formData.localidad}
@@ -287,7 +288,7 @@ navigate(`/orden/${docRef.id}`);
                  />
             </div>
 
-        <fieldset className="fieldset">
+
             <div className="form-group">
                 <label htmlFor="cardNumber">introduzca los datos de su tarjeta</label>
                 <input type="text"

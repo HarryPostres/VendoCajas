@@ -5,6 +5,7 @@ import {db} from "../firebase/config";
 import "../css/OrderDetail.css";
 
 export default function OrderDetail() {
+
 const {id} = useParams();
 const [orden, setOrden] = useState(null);
 
@@ -31,7 +32,7 @@ return (
     <div className="Ticket-container">
         <h1>Ticket de compra:</h1>
         <p><strong>ID de orden:</strong>{id}</p>
-        <p><strong>Cliente:</strong>{orden.comprador.Nombre}</p>
+        <p><strong>Cliente:</strong>{orden.comprador.nombre}</p>
         <p><strong>Email:</strong>{orden.comprador.email}</p>
         <p><strong>Fecha:</strong>{new Date(orden.fecha).toLocaleString()}</p>
 
@@ -39,7 +40,7 @@ return (
         <ul>
             {orden.items.map((p) => (
                 <li key={p.id}>
-                   {p.Nombre} x{p.cantidad} - ${p.precio * p.cantidad}     
+                   {p.nombre} x{p.cantidad} - ${p.precio * p.cantidad}     
                 </li>
             ))}
         </ul>
