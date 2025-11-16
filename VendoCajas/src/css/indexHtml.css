@@ -39,13 +39,20 @@ p{
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
-
+   font-family: "Permanent Marker", cursive;
   border: none;
   height: 60px;
   width: 250px;
   font-size: 20px;
   cursor: pointer;
 }
+
+.btn-ver-catalogo:hover{
+  color: blue;
+  cursor: pointer;
+
+}
+
 
 .index-img-text{
   text-align: right;

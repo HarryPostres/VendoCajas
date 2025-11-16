@@ -100,7 +100,7 @@ height: 60px;
 }
 
 .btn-agregar{
-  color: rgb(255, 81, 0);
+  color: rgb(72, 255, 0);
     font-family: "Permanent Marker", cursive;
 }
 
@@ -119,9 +119,11 @@ height: 60px;
 
   font-family: "Permanent Marker", cursive;
   background-color: #6da3d9;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .btn-detalles:hover{
 color: blue;
 }
+
+
