@@ -23,13 +23,13 @@
 }
 
 
-.contador-cart{
+.contador-cart {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 8px 12px;
-    border-radius:8px;
+    border-radius: 8px;
     width: fit-content;
     margin-top: 10px;
 
@@ -40,14 +40,14 @@
 }
 
 
-.carrito-item:hover .contador-cart{
+.carrito-item:hover .contador-cart {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
 
-.btn-count{
+.btn-count {
     background-color: aqua;
     border: none;
     border-radius: 6px;
@@ -57,14 +57,14 @@
     cursor: pointer;
 }
 
-.contador-cart span{
+.contador-cart span {
     font-size: 16px;
     min-width: 80px;
     text-align: center;
 }
 
-.btn-count:hover{
-background-color: aquamarine;
+.btn-count:hover {
+    background-color: aquamarine;
 }
 
 
@@ -75,11 +75,11 @@ background-color: aquamarine;
 }
 
 .btn-quitar {
-      background-image: url('./src/img/Btn-rojo.avif');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-   font-family: "Permanent Marker", cursive;
+    background-image: url('./src/img/Btn-rojo.avif');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Permanent Marker", cursive;
 
     color: white;
     border: none;
@@ -90,13 +90,13 @@ background-color: aquamarine;
 }
 
 .btn-quitar:hover {
-color: black;
-cursor: pointer;
+    color: black;
+    cursor: pointer;
 }
 
 
 
-.acciones-cart{
+.acciones-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,13 +107,13 @@ cursor: pointer;
 
 
 
-.btn-vaciar-cart{
-      background-image: url('./src/img/Btn-rojo.avif');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-   font-family: "Permanent Marker", cursive;
-   color: white;
+.btn-vaciar-cart {
+    background-image: url('./src/img/Btn-rojo.avif');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Permanent Marker", cursive;
+    color: white;
     padding: 13px 17px;
     border: none;
     border-radius: 6px;
@@ -121,19 +121,19 @@ cursor: pointer;
     cursor: pointer;
 }
 
-.btn-vaciar-cart:hover{
+.btn-vaciar-cart:hover {
     color: black;
     cursor: pointer;
 }
 
 
 
-.btn-pagar-cart{
-              background-image: url('./src/img/Btn-amarillo.jpg');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-   font-family: "Permanent Marker", cursive;
+.btn-pagar-cart {
+    background-image: url('./src/img/Btn-amarillo.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Permanent Marker", cursive;
 
     min-width: 250px;
     color: rgb(0, 0, 0);
@@ -146,10 +146,14 @@ cursor: pointer;
 }
 
 .btn-pagar-cart:hover {
-background-color: #e4c600};
+    background-color: #e4c600
+}
+
+;
 
 
-.acciones-cart, h3{
+.acciones-cart,
+h3 {
     text-align: center;
     font-size: 20px;
 }

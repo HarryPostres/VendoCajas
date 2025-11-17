@@ -1,15 +1,15 @@
-.checkout-container{
-max-width: 600px;
-margin:40px auto;
-padding: 25px;
+.checkout-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
 }
 
-.checkout-container h1{
+.checkout-container h1 {
     text-align: center;
     margin-bottom: 25px;
 }
 
-.checkout-form{
+.checkout-form {
     display: flex;
     flex-direction: column;
 }
@@ -20,26 +20,26 @@ padding: 25px;
 
 }
 
-.form-group label{
+.form-group label {
     margin-bottom: 5px;
 }
 
 .form-group input {
-             /*  background-image: url('./src/img/Fondo-blanco.png'); */
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-   font-family: "Permanent Marker", cursive;
+    /*  background-image: url('./src/img/Fondo-blanco.png'); */
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Permanent Marker", cursive;
     padding: 8px 10px;
     border-radius: 5px;
 }
 
 .btn-confirmar {
- /*              background-image: url('./src/img/Btn-amarillo.jpg'); */
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-   font-family: "Permanent Marker", cursive;
+    background-image: url('./src/img/Btn-amarillo.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Permanent Marker", cursive;
 
     margin-top: 20px;
     padding: 10px;
@@ -50,7 +50,7 @@ padding: 25px;
     cursor: pointer;
 }
 
-.btn-confirmar:hover{
-    color: white;
+.btn-confirmar:hover {
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }

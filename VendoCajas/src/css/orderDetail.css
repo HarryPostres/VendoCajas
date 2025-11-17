@@ -1,0 +1,28 @@
+h1 {
+    font-family: "Permanent Marker", cursive;
+}
+
+
+
+.Ticket-container {
+    width: 360px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
+
+.ticket-svg svg {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-descargar {
+
+    margin-top: 20px;
+    padding: 10px 16px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

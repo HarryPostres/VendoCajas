@@ -1,54 +1,120 @@
-import { useEffect,useState } from "react";
-import {Form, useParams} from "react-router-dom";
-import {doc, getDoc} from "firebase/firestore"
-import {db} from "../firebase/config";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 import "../css/OrderDetail.css";
 
 export default function OrderDetail() {
+    const { id } = useParams();
+    const [orden, setOrden] = useState(null);
+    const [svg, setSvg] = useState("");
 
-const {id} = useParams();
-const [orden, setOrden] = useState(null);
+    useEffect(() => {
+        const fetchOrder = async () => {
+            try {
+                const docRef = doc(db, "ordenes", id);
+                const snap = await getDoc(docRef);
 
-useEffect(() => {
-    const fetchOrder = async () => {
-        try{
-            const docRef = doc(db, "ordenes", id);
-            const snap = await getDoc(docRef);
-            if (snap.exists()){
-                setOrden(snap.data());
-            } else {
-                console.warn("No se encontro la orden");
+                if (snap.exists()) {
+                    const data = snap.data();
+                    setOrden(data);
+                    generarSVG(data);
+                } else {
+                    console.warn("No se encontró la orden");
+                }
+            } catch (err) {
+                console.error("Error al obtener la orden", err);
             }
-        }catch (err){
-            console.error("Error al obtener la orden", err);
-        }
+        };
+        fetchOrder();
+    }, [id]);
+
+    const generarSVG = (orden) => {
+        const fecha = new Date(orden.fecha).toLocaleString();
+
+        const productosTexto = orden.items
+            .map(
+                (p) =>
+                    `${p.nombre.padEnd(20)} x${p.cantidad} $${(
+                        p.precio * p.cantidad
+                    ).toFixed(2)}`
+            )
+            .join("\n");
+
+        const texto = `
+*** VENDOCAJAS ***
+COMPROBANTE DE COMPRA
+--------------------------------
+ID: ${id}
+Fecha: ${fecha}
+--------------------------------
+Cliente:
+${orden.comprador.nombre}
+${orden.comprador.email}
+DNI: ${orden.comprador.dni}
+Dirección:
+${orden.comprador.direccion.calle}
+${orden.comprador.direccion.localidad}, ${orden.comprador.direccion.provincia}
+CP: ${orden.comprador.direccion.cp}
+--------------------------------
+PRODUCTOS
+${productosTexto}
+--------------------------------
+TOTAL: $${orden.total.toFixed(2)}
+Pago: **** ${orden.pago.cardLast4}
+--------------------------------
+GRACIAS POR SU COMPRA
+`;
+
+        const lines = texto.split("\n");
+        const lineHeight = 18;
+        const width = 300;
+        const height = lines.length * lineHeight + 30;
+
+        const svgContent = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+        <rect x="0" y="0" width="100%" height="100%" fill="white" />
+        <g font-family="monospace" font-size="14">
+          ${lines
+                .map(
+                    (line, i) =>
+                        `<text x="10" y="${20 + i * lineHeight}">${line}</text>`
+                )
+                .join("")}
+        </g>
+      </svg>
+    `;
+
+        setSvg(svgContent);
     };
-fetchOrder();
-}, [id]);
 
-if (!orden) return <h2 className="cargando-ticket"> Cargando ticket...</h2>;
+    if (!orden) return <h2 className="cargando-ticket">Cargando ticket...</h2>;
 
-return (
-    <div className="Ticket-container">
-        <h1>Ticket de compra:</h1>
-        <p><strong>ID de orden:</strong>{id}</p>
-        <p><strong>Cliente:</strong>{orden.comprador.nombre}</p>
-        <p><strong>Email:</strong>{orden.comprador.email}</p>
-        <p><strong>Fecha:</strong>{new Date(orden.fecha).toLocaleString()}</p>
+    return (
+        <div className="Ticket-container">
+            <h1>Ticket de compra</h1>
 
-        <h3>Productos:</h3>
-        <ul>
-            {orden.items.map((p) => (
-                <li key={p.id}>
-                   {p.nombre} x{p.cantidad} - ${p.precio * p.cantidad}     
-                </li>
-            ))}
-        </ul>
+            <div
+                className="ticket-svg"
+                dangerouslySetInnerHTML={{ __html: svg }}
+            />
 
-<h2> Total pagado: ${orden.total}</h2>
-        <p>ultimos 4 numeros de la tarjeta: {orden.pago.cardLast4}</p>
+            <button
+                className="btn-descargar"
+                onClick={() => {
+                    const blob = new Blob([svg], { type: "image/svg+xml" });
+                    const url = URL.createObjectURL(blob);
 
-    </div>
-);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `ticket-${id}.svg`;
+                    a.click();
 
+                    URL.revokeObjectURL(url);
+                }}
+            >
+                Descargar Ticket
+            </button>
+        </div>
+    );
 }

@@ -1,20 +1,20 @@
-.app-layout-detalles{
+.app-layout-detalles {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px 0;
 }
 
-.main-content-detalles{
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 40px;
-width: 80%;
-max-width: 1200px;
-align-items: center;
+.main-content-detalles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    align-items: center;
 }
 
-.img-detalles{
+.img-detalles {
     width: 600px;
     max-width: 100%;
     height: auto;
@@ -24,34 +24,40 @@ align-items: center;
 
 .main-content-detalles h1,
 .main-content-detalles .precio-detalles,
-.main-content-detalles .descipcion-detalles
-.main-content-detalles .btn-agregar-detalles{
+.main-content-detalles .descipcion-detalles .main-content-detalles .btn-agregar-detalles {
     text-align: center;
-    
+
 }
 
-.precio-detalles{
+.precio-detalles {
     font-size: 24px;
     line-height: 1.4;
 }
 
-.btn-agregar-detalles{
-width: 700px;
-padding: 12px 20px;
-margin-top: 25px;
-align-self: center;
-background:black;
-color: white;
-cursor: pointer;
-border: none;
-font-size: 16px;
+.btn-agregar-detalles {
+      background-image: url('../src/img/Btn-add.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+    color: rgb(2, 243, 22);
+    width: 600px;
+    padding: 12px 20px;
+    margin-top: 25px;
+    align-self: center;
+
+    cursor: pointer;
+    border: none;
+    font-size: 25px;
+    font-family: "Permanent Marker", cursive;
 }
 
 .btn-agregar-detalles:hover{
-    background: #e6d14c;
+    color: red;
+    cursor: pointer;
 }
 
-.info-detalles{
+
+.info-detalles {
     display: flex;
     flex-direction: column;
     align-items: center;

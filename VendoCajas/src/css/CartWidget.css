@@ -1,9 +1,13 @@
 .cart-widget {
   position: relative;
-  color: white;
+  color: rgb(2, 243, 22);
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.cart-widget:hover {
+  color: red;
 }
 
 .cart-icon {

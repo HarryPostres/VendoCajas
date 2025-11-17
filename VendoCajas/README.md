@@ -1,16 +1,35 @@
-# React + Vite
+DESCRIPCION DEL PROYECTO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+este es un sitio de venta de cajas con productos extraños y en los que no conviene meter tus datos reales, los archivos estan en firebase como fue indicado ignorando un par, el estilo de la pagina fue claramente usar solo imagenes de cajas para cada parte del sitio, es horrible y sobre-estimulante, pero era la idea.
 
-Currently, two official plugins are available:
+Ver los productos:
+para ver nuestros productos disponibles, desde el navbar superior con el boton "Catálogo", puede dirigirse a la parte inferior del index para ver tres productos aleatorios o la opcion "ver catálogo completo" para ver todos los productos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Cards de productos:
+para añadir un producto al carrito (para comprarlo claramente) debe usar la opcion "agregar al carrito" (boton azul en cada card de producto), se le informara que el producto fue añadido por medio de una notificacion
 
-## React Compiler
+para ver los detalles, use el boton al lado del mismo, lo que lo dirigira a una pestaña con los detalles de cada producto, con la opcion de agregar el producto al carrito desde ahí.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Uso del carrito:
 
-## Expanding the ESLint configuration
+una vez añadidos los productos, podran ser visualizados haciendo click en el icono de carrito en la esquina superior derecha, puede sumar unidades pasando el cursor sobre los productos que tenga en el carrito, una vez su cursor este sobre el producto, se revelaran las unidades y el boton para agregar unidades (+) y el de eliminar unidad (-). En caso de querer quitar un producto y todas sus repeticiones, solo use el boton de quitar a la derecha del producto.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+en caso de querer eliminar todos los productos, el boton vaciar carrito (abajo a la izquierda) elimina todos los productos del carrito
+
+por ultimo, con el boton pagar, se lo redirijira a la pesaña para introducir datos de entrega y de pago.
+
+Pestaña Checkout:
+
+En esta pestaña se le pediran datos para la entrega y el pago de sus cajas, nombre completo, email, etc, use datos de ejemplo (las tarjetas pasan por verificacion, para probar yo use "4111 1111 1111 1111", "12/30", "123")
+
+una vez introducidos todos los datos, el boton los redirijira a la pestaña de OrderDetail, donde podran ver todos los datos en un ticket, el cual puede ser descargado con el boton "descargar Ticket", mientras que de fondo envia y almacena los datos introducidos en firebase
+
+luego, puede volver a la pestaña de inicio con el boton de mismo nombre en el navbar, tambien, si desea presentar una queja, o asistencia para hacer pedidos, puede usar la pestaña de "contacto" para encontrar nuestro numero.
+
+
+
+
+
+
+
+
