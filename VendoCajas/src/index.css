@@ -4,10 +4,12 @@
   min-height: 100vh;
 }
 
+
 body {
   background-image: url('./src/img/Background.jpg');
   font-family: "Permanent Marker", cursive;
 }
+
 
 .main-content {
   min-height: 0;

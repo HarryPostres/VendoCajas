@@ -23,8 +23,7 @@ export default function App() {
                 path="/"
                 element={
                   <Layout><IndexHtml /></Layout>
-                }
-              />
+                } />
 
               <Route
                 path="/add-product"
@@ -54,21 +53,13 @@ export default function App() {
                 path="/checkout"
                 element={
                   <Layout> <Checkout /> </Layout>
-                }
-              />
+                } />
 
               <Route
                 path="/orden/:id"
                 element={
                   <Layout><OrderDetail /></Layout>
-                }
-
-
-              />
-
-
-
-
+                } />
 
               <Route
                 path="/producto/:id"

@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import "../css/NotificationContext.css"
 
-
 const NotificationContext = createContext();
 
 export function NotificationProvider({ children }) {
@@ -9,7 +8,7 @@ export function NotificationProvider({ children }) {
 
   const showNotification = (text) => {
     setMessage(text);
-    setTimeout(() => setMessage(null), 4000); // se borra a los 4 segundos
+    setTimeout(() => setMessage(null), 4000); 
   };
 
   return (

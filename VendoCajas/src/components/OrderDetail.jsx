@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
+import { db } from "../Firebase/config";
 import "../css/OrderDetail.css";
 
 export default function OrderDetail() {
@@ -98,6 +98,8 @@ GRACIAS POR SU COMPRA
                 className="ticket-svg"
                 dangerouslySetInnerHTML={{ __html: svg }}
             />
+
+            <p>Agradecemos tu compra, tu pedido llegará a tus puertas en un plazo de 7 a 15 días, te informaremos vía mail de todas formas, descarga tu ticket, es ahora, o nunca...</p>
 
             <button
                 className="btn-descargar"

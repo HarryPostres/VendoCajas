@@ -12,6 +12,7 @@
   animation: fadeInOut 4s ease-in-out forwards;
 }
 
+
 @keyframes fadeInOut {
   0% {
     opacity: 0;

@@ -25,47 +25,38 @@ export default function Carrito() {
                     <h3>{item.Nombre}</h3>
                     <p>Precio: ${item.Precio}</p>
 
-
                     <div className="contador-cart">
                         <button className="btn-count"
                             onClick={() => decrement(item.id)}>
                             -
                         </button>
+
                         <span>Cantidad: {item.cantidad}</span>
+                        
                         <button className="btn-count"
                             onClick={() => addToCart(item)}>
                             +
                         </button>
-
                     </div>
-
 
                     <button onClick={() => removeFromCart(item.id)} className="btn-quitar">
                         Quitar</button>
 
-
-
                 </div>
-
-
+            
             ))}
-
 
             <div className="acciones-cart">
                 <button className="btn-vaciar-cart" onClick={clearCart}> Vaciar carrito</button>
-
 
                 <h3> total: ${total.toFixed(2)}</h3>
 
                 <button
                     className="btn-pagar-cart"
-                    onClick={() => navigate("/checkout")}
-                >
+                    onClick={() => navigate("/checkout")}>
                     Pagar
                 </button>
-
             </div>
-
         </div>
     );
 }

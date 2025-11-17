@@ -2,16 +2,12 @@ import { useState } from "react";
 import { useCart } from "./CartContext";
 import "../css/Checkout.css"
 import { collection, addDoc } from "firebase/firestore"
-import firebase from "firebase/compat/app";
-import { db } from "../firebase/config.js";
+import { db } from "../Firebase/config.js";
 import { useNavigate } from "react-router-dom";
-import { doc } from "firebase/firestore/lite";
-
 
 export default function Checkout() {
     const { items } = useCart();
     const total = items.reduce((acc, item) => acc + item.Precio * item.cantidad, 0);
-
     const [formData, setFormData] = useState({
         nombre: "",
         email: "",
@@ -20,7 +16,6 @@ export default function Checkout() {
         localidad: "",
         provincia: "",
         codigoPostal: "",
-
         cardNumber: "",
         cardExpiry: "",
         cardCvv: "",
@@ -29,12 +24,9 @@ export default function Checkout() {
     const [errors, setErrors] = useState({});
     const [successMsg, setSuccesMsg] = useState(null);
 
-    /* logica card */
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         let v = value;
-
 
         if (name === "cardNumber") {
             v = value.replace(/\D/g, "").slice(0, 19);
@@ -83,11 +75,8 @@ export default function Checkout() {
     };
 
 
-    //validaciones
     const validate = () => {
         const e = {};
-
-
 
         if (!formData.nombre.trim()) e.nombre = "Nombre requerido";
         if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = "Email invalido";
@@ -121,7 +110,6 @@ export default function Checkout() {
 
         if (!formData.cardCvv.match(/^\d{3,4}$/)) e.cardCvv = "CVV inválido";
 
-        /* errores */
 
         setErrors(e);
         return Object.keys(e).length === 0;
@@ -170,7 +158,6 @@ export default function Checkout() {
         try {
             const docRef = await addDoc(collection(db, "ordenes"), orden);
             console.log("orden guardada con ID:", docRef.id);
-
 
             setFormData({
                 nombre: "",
@@ -288,7 +275,6 @@ export default function Checkout() {
                         />
                     </div>
 
-
                     <div className="form-group">
                         <label htmlFor="cardNumber">introduzca los datos de su tarjeta</label>
                         <input type="text"
@@ -301,7 +287,6 @@ export default function Checkout() {
                         />
                         {errors.cardNumber && <small className="error"> {errors.cardNumber}</small>}
                     </div>
-
 
                     <div className="form-group">
                         <label htmlFor="cardExpiry">Fecha de vencimiento</label>
@@ -329,7 +314,6 @@ export default function Checkout() {
                         />
                     </div>
                     {errors.cardCvv && <small className="error"> {errors.cardCvv}</small>}
-
 
                 </fieldset>
 

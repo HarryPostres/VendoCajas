@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react';
-import { addProduct } from '../firebase/addProduct.js';
-import { db } from '../firebase/config.js';
+import { db } from '../Firebase/config.js';
 import { collection, getDocs } from 'firebase/firestore';
 import '../css/ItemListContainer.css';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from "./CartContext.jsx";
 import { useNotification } from './NotificationContext.jsx';
-
-
-
-/* Productos render */
 
 function AddProductKart({ mostrarAleatorios = false }) {
     const [productos, setProductos] = useState([]);
@@ -17,28 +12,21 @@ function AddProductKart({ mostrarAleatorios = false }) {
     const { addToCart } = useCart();
     const { showNotification } = useNotification();
 
-
-
     useEffect(() => {
         const fetchProductos = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "Productos"));
-
                 console.log("Documentos encontrados:", querySnapshot.docs.length);
                 querySnapshot.docs.forEach(doc => console.log("Doc:", doc.id, doc.data()));
-
-
 
                 let productosData = querySnapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data()
                 }));
 
-                /* PRODUCTOS EN ALEATORIO */
                 if (mostrarAleatorios) {
                     const shuffled = productosData.sort(() => Math.random() - 0.5);
-                    console.log("productos aleatorizados:", shuffled);
-                    productosData = shuffled.slice(0, 3); // take first 10 randomized items (adjust number as needed)
+                    productosData = shuffled.slice(0, 3); 
                 }
 
 
@@ -53,7 +41,7 @@ function AddProductKart({ mostrarAleatorios = false }) {
 
     const handleAddToCart = (prod) => {
         addToCart(prod);
-        showNotification("Producto agregado al carrito, puede sumar unidades en el carrito.")
+        showNotification("¡Producto agregado al carrito! puede sumar unidades en el carrito.")
     }
 
     return (

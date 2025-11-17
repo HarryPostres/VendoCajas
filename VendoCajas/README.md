@@ -1,30 +1,75 @@
-DESCRIPCION DEL PROYECTO
+DESCRIPCIÓN DEL PROYECTO
 
-este es un sitio de venta de cajas con productos extraños y en los que no conviene meter tus datos reales, los archivos estan en firebase como fue indicado ignorando un par, el estilo de la pagina fue claramente usar solo imagenes de cajas para cada parte del sitio, es horrible y sobre-estimulante, pero era la idea.
+Este es un sitio de venta de cajas con productos extraños, pensado para que definitivamente no quieras usar tus datos reales.
+Los archivos se alojan en Firebase (salvo algunas excepciones), y el estilo general de la página se basa completamente en imágenes de cajas para absolutamente todo. Sí, es feo y sobre-estimulante… pero esa era justamente la idea.
 
-Ver los productos:
-para ver nuestros productos disponibles, desde el navbar superior con el boton "Catálogo", puede dirigirse a la parte inferior del index para ver tres productos aleatorios o la opcion "ver catálogo completo" para ver todos los productos.
 
-Cards de productos:
-para añadir un producto al carrito (para comprarlo claramente) debe usar la opcion "agregar al carrito" (boton azul en cada card de producto), se le informara que el producto fue añadido por medio de una notificacion
 
-para ver los detalles, use el boton al lado del mismo, lo que lo dirigira a una pestaña con los detalles de cada producto, con la opcion de agregar el producto al carrito desde ahí.
+Ver los productos
 
-Uso del carrito:
+Para ver los productos disponibles:
 
-una vez añadidos los productos, podran ser visualizados haciendo click en el icono de carrito en la esquina superior derecha, puede sumar unidades pasando el cursor sobre los productos que tenga en el carrito, una vez su cursor este sobre el producto, se revelaran las unidades y el boton para agregar unidades (+) y el de eliminar unidad (-). En caso de querer quitar un producto y todas sus repeticiones, solo use el boton de quitar a la derecha del producto.
+Desde el navbar superior, presioná el botón “Catálogo”.
 
-en caso de querer eliminar todos los productos, el boton vaciar carrito (abajo a la izquierda) elimina todos los productos del carrito
+En la parte inferior del index, podés ver tres productos aleatorios.
 
-por ultimo, con el boton pagar, se lo redirijira a la pesaña para introducir datos de entrega y de pago.
+También podés seleccionar “Ver catálogo completo” para acceder a todos los productos.
 
-Pestaña Checkout:
 
-En esta pestaña se le pediran datos para la entrega y el pago de sus cajas, nombre completo, email, etc, use datos de ejemplo (las tarjetas pasan por verificacion, para probar yo use "4111 1111 1111 1111", "12/30", "123")
 
-una vez introducidos todos los datos, el boton los redirijira a la pestaña de OrderDetail, donde podran ver todos los datos en un ticket, el cual puede ser descargado con el boton "descargar Ticket", mientras que de fondo envia y almacena los datos introducidos en firebase
+Cards de productos
 
-luego, puede volver a la pestaña de inicio con el boton de mismo nombre en el navbar, tambien, si desea presentar una queja, o asistencia para hacer pedidos, puede usar la pestaña de "contacto" para encontrar nuestro numero.
+Cada producto incluye dos opciones:
+
+Agregar al carrito
+
+Presioná el botón azul “Agregar al carrito”.
+Aparecerá una notificación confirmando que el producto fue añadido.
+
+Ver detalles
+
+El botón contiguo te llevará a una página con la información completa del producto, donde también podrás agregarlo al carrito desde allí.
+
+
+
+Uso del carrito
+
+Una vez que agregues productos, podés verlos haciendo clic en el icono del carrito en la esquina superior derecha.
+
+Al pasar el cursor por encima de cada producto, se mostrarán las unidades actuales y los botones para:
+
+Sumar unidades (+)
+
+Restar unidades (–)
+
+Si querés eliminar un producto por completo, usá el botón “Quitar” a la derecha de cada item.
+
+Para borrar todo de una vez, el botón “Vaciar carrito” (abajo a la izquierda) elimina todos los productos.
+
+Cuando estés listo para finalizar, presioná “Pagar”, lo que te llevará a la pestaña de Checkout.
+
+
+
+Pestaña Checkout
+
+En esta sección se solicitan los datos de entrega y pago: nombre completo, email, tarjeta, etc.
+Usá datos de ejemplo (la pasarela de pago verifica las tarjetas). Para pruebas funciona:
+
+Número: 4111 1111 1111 1111
+
+Vencimiento: 12/30
+
+Código: 123
+
+Después de completar el formulario, el botón te redirige a OrderDetail, donde podrás ver un ticket con todos los datos ingresados.
+Ese ticket puede descargarse con el botón “Descargar Ticket”, mientras que la información se almacena en Firebase.
+
+
+
+Volver al inicio y contacto
+
+Podés regresar a la página inicial desde el navbar con el botón “Inicio”.
+Y si querés hacer una queja, pedir soporte o simplemente sufrir acompañado, la pestaña “Contacto” tiene nuestro número.
 
 
 

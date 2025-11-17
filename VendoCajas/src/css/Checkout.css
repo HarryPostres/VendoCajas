@@ -25,7 +25,6 @@
 }
 
 .form-group input {
-    /*  background-image: url('./src/img/Fondo-blanco.png'); */
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
@@ -40,7 +39,6 @@
     background-repeat: no-repeat;
     background-position: center;
     font-family: "Permanent Marker", cursive;
-
     margin-top: 20px;
     padding: 10px;
     border: none;

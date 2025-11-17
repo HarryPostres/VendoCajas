@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import '../css/Header.css';
 import CartWidget from "./CartWidget";
 
-
 export default function Header() {
   return (
     <header className="main-header">

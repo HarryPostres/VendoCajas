@@ -1,20 +1,25 @@
+h2{
+    text-align: center;
+    font-size: 40px;
+}
+
 .carrito-principal {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
 }
 
+
 .carrito-item {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
-
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
 }
 
-/* Imagen */
+
 .img-cart {
     width: 200px;
     height: 150px;
@@ -32,7 +37,6 @@
     border-radius: 8px;
     width: fit-content;
     margin-top: 10px;
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(5px);
@@ -57,22 +61,23 @@
     cursor: pointer;
 }
 
+
 .contador-cart span {
     font-size: 16px;
     min-width: 80px;
     text-align: center;
 }
 
+
 .btn-count:hover {
     background-color: aquamarine;
 }
 
 
-/* Información a la derecha */
-
 .carrito-item h3 {
     margin: 0;
 }
+
 
 .btn-quitar {
     background-image: url('./src/img/Btn-rojo.avif');
@@ -80,7 +85,6 @@
     background-repeat: no-repeat;
     background-position: center;
     font-family: "Permanent Marker", cursive;
-
     color: white;
     border: none;
     padding: 8px 14px;
@@ -89,11 +93,11 @@
     cursor: pointer;
 }
 
+
 .btn-quitar:hover {
     color: black;
     cursor: pointer;
 }
-
 
 
 .acciones-cart {
@@ -103,8 +107,6 @@
     margin-top: 20px;
     gap: 20px;
 }
-
-
 
 
 .btn-vaciar-cart {
@@ -134,7 +136,6 @@
     background-repeat: no-repeat;
     background-position: center;
     font-family: "Permanent Marker", cursive;
-
     min-width: 250px;
     color: rgb(0, 0, 0);
     border: none;
@@ -148,8 +149,6 @@
 .btn-pagar-cart:hover {
     background-color: #e4c600
 }
-
-;
 
 
 .acciones-cart,

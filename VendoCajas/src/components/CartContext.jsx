@@ -1,13 +1,10 @@
-
 import { createContext, useContext, useReducer } from 'react';
-
 
 const CartContext = createContext()
 
 const initialState = {
   items: []
 };
-
 
 function cartReducer(state, action) {
   switch (action.type) {
@@ -25,6 +22,7 @@ function cartReducer(state, action) {
           )
         };
       }
+
       return {
         ...state,
         items: [...state.items, { ...action.product, cantidad: 1 }]

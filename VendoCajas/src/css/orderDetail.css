@@ -1,7 +1,6 @@
-h1 {
+h1, p {
     font-family: "Permanent Marker", cursive;
 }
-
 
 
 .Ticket-container {
@@ -12,13 +11,14 @@ h1 {
     font-family: "Courier New", monospace;
 }
 
+
 .ticket-svg svg {
     width: 100%;
     margin-top: 20px;
 }
 
-.btn-descargar {
 
+.btn-descargar {
     margin-top: 20px;
     padding: 10px 16px;
     background: black;
