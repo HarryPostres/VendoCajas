@@ -34,7 +34,6 @@ h2{
     justify-content: center;
     gap: 10px;
     padding: 8px 12px;
-    border-radius: 8px;
     width: fit-content;
     margin-top: 10px;
     opacity: 0;
@@ -54,7 +53,6 @@ h2{
 .btn-count {
     background-color: aqua;
     border: none;
-    border-radius: 6px;
     width: 32px;
     height: 32px;
     font-size: 20px;
@@ -88,7 +86,6 @@ h2{
     color: white;
     border: none;
     padding: 8px 14px;
-    border-radius: 6px;
     width: fit-content;
     cursor: pointer;
 }
@@ -118,7 +115,6 @@ h2{
     color: white;
     padding: 13px 17px;
     border: none;
-    border-radius: 6px;
     margin-top: 10px;
     cursor: pointer;
 }
@@ -140,7 +136,6 @@ h2{
     color: rgb(0, 0, 0);
     border: none;
     padding: 13px 17px;
-    border-radius: 6px;
     width: fit-content;
     cursor: pointer;
     font-size: 20px;

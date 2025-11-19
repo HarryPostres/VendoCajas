@@ -30,7 +30,6 @@
     background-position: center;
     font-family: "Permanent Marker", cursive;
     padding: 8px 10px;
-    border-radius: 5px;
 }
 
 .btn-confirmar {
@@ -43,7 +42,6 @@
     padding: 10px;
     border: none;
     color: black;
-    border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
 }
